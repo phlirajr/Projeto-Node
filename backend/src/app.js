@@ -1,14 +1,14 @@
-// Requisitando módulo express
+// Requisitando os módulo utilizados
 const express = require('express');
+const router = require('./router')
 
 // Criando um objeto do tipo express
 const app = express();
 
-// GET Request
-app.get('/',(req, res) => {
-    res.status(200).send('A simple Node app is running on this server');
-    res.end;
-});
+// Indica que toda requisição que acontecer para nossa aplicação vai ser enviada para o router
+app.use(express.json());
+app.use(router);
+
 
 //Exportando os módulos
 module.exports = app;
